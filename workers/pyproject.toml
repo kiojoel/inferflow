@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "interflow-workers"
+version = "0.1.0"
+description = "FastAPI inference workers for Interflow"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "pydantic>=2.0.0",
+    # Add model libraries (e.g., torch, transformers) later
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "black>=23.0",
+    "ruff>=0.0.275",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
